@@ -24,10 +24,6 @@ export default function home({ navigation }) {
             <TouchableOpacity style={styles.botaoMenu} onPress={() => navigation.navigate('sale')}>
                 <Text style={styles.textoBotaoMenu}>VENDAS</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => navigation.navigate('about')} style={styles.bottomButtonRight} >
-                <Ionicons name="help-circle" size={70} color="#002a5c" />
-            </TouchableOpacity>
         </View>
     );
 }

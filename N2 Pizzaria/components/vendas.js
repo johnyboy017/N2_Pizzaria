@@ -20,8 +20,7 @@ export default function sale({ order }) {
     return (
         <View style={orderStyles.listItem}>
 
-            <Text style={orderStyles.listItemText}>Cliente: {order.customer}</Text>
-            <Text style={orderStyles.listItemText}>Id: {order.id}</Text>
+            <Text style={orderStyles.listItemText}>ID: {order.id}</Text>
             <Text style={orderStyles.listItemText}>Data: {order.date}</Text>
 
             {

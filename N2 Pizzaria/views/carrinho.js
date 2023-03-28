@@ -10,7 +10,7 @@ export default function cart({ navigation }) {
 
     let props = navigation.state.params;
 
-    const [customer, setCustomer] = useState();
+    const [formaPagamento, setFormaPagamento] = useState();
     const [productList, setProductList] = useState([]);
     const [total, setTotal] = useState();
 
@@ -51,10 +51,10 @@ export default function cart({ navigation }) {
 
         if (productList.length > 0) {
 
-            if (customer) {
+            if (formaPagamento) {
                 let order = {
                     id: null,
-                    user: customer,
+                    user: formaPagamento,
                     itemList: null
                 }
 
@@ -75,7 +75,7 @@ export default function cart({ navigation }) {
                     Alert.alert('Erro', 'Pedido não foi concluído!!');
                 }
             } else {
-                Alert.alert('Coloque o nome do cliente!!');
+                Alert.alert('Coloque uma forma de pagamento!!');
             }
 
         } else {
@@ -112,11 +112,6 @@ export default function cart({ navigation }) {
 
             <Text style={styles.titulo}>CARRINHO</Text>
 
-            <View style={styles.containerSV}>
-                <Text style={styles.labelInput}>Nome do cliente</Text>
-                <TextInput onChangeText={(text) => setCustomer(text)} value={customer} style={styles.inputText2}></TextInput>
-            </View>
-
             <ScrollView style={styles.containerSV}>
                 {
                     productList.map((prod, index) => (
@@ -124,6 +119,11 @@ export default function cart({ navigation }) {
                     ))
                 }
             </ScrollView>
+
+            <View style={styles.containerSV}>
+                <Text style={styles.labelInput}>Forma de Pagamento</Text>
+                <TextInput onChangeText={(text) => setFormaPagamento(text)} value={formaPagamento} style={styles.inputText2}></TextInput>
+            </View>
 
             <Text style={styles.labelInput}>Total: R$ {total}</Text>
 
